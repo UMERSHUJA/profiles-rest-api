@@ -4,7 +4,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
 
-class UserProfileManager(AbstractBaseUser):
+class UserProfileManager(BaseUserManager):
     """Manager for user profiles """
     def create_user(self, email, name, password=None):
         """ create a new user profile """
@@ -46,7 +46,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         """ REtrieve full name of user """
         return self.name
 
-    def get_Short_name(self):
+    def get_short_name(self):
         """ Retrieve short name of user """
         return self.name
 
